@@ -77,7 +77,7 @@ Statyczna biblioteka uulib.
 
 %build
 aclocal
-autoconf
+%{__autoconf}
 %configure
 
 %{__make}
