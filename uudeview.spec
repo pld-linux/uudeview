@@ -121,7 +121,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc doc/library.ps
 %attr(755,root,root) %{_libdir}/libuu.so
-%attr(755,root,root) %{_libdir}/libuu.la
+%{_libdir}/libuu.la
 %{_includedir}/*.h
 
 %files static
