@@ -1,13 +1,15 @@
 Summary:	Smart decoder for uuencode, xxencode, Base64 and BinHex
 Summary(pl):	Uniwersalny dekoder uuencode, xxencode, Base64 i BinHex
 Name:		uudeview
-Version:	0.5.13
-Release:	5
+Version:	0.5.15
+Release:	1
 License:	GPL
 Group:		Applications/File
-Source0:	http://www.informatik.uni-frankfurt.de/~fp/uudeview/Apps/frank/%{name}-%{version}.tar.gz
-URL:		http://www.uni-frankfurt.de/~fp/uudeview/
+Source0:	http://www.fpx.de/fp/Software/UUDeview/download/%{name}-%{version}.tar.gz
+URL:		http://www.fpx.de/fp/Software/UUDeview/
 BuildRequires:	autoconf
+BuildRequires:	tcl-devel
+BuildRequires:	tk-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -27,6 +29,7 @@ plików na wy¿ej wymienione formaty (oprócz BinHex).
 %setup -q
 
 %build
+aclocal
 autoconf
 %configure \
 	--without-x
@@ -39,7 +42,7 @@ rm -rf $RPM_BUILD_ROOT
 	BINDIR=$RPM_BUILD_ROOT%{_bindir} \
 	MANDIR=$RPM_BUILD_ROOT%{_mandir}
 
-gzip -9nf HISTORY HOWTO IAFA-PACKAGE
+gzip -9nf HISTORY IAFA-PACKAGE
 
 %clean
 rm -rf $RPM_BUILD_ROOT
