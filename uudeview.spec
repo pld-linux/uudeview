@@ -30,7 +30,7 @@ BinHex).
 LDFLAGS="-s"; export LDFLAGS
 %configure \
 	--without-x
-make
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
