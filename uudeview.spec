@@ -3,7 +3,7 @@ Summary(pl):	Uniwersalny dekoder uuencode, xxencode, Base64 i BinHex
 Summary(pt_BR):	UUDeview, decodificador de vários tipos de arquivos
 Name:		uudeview
 Version:	0.5.18
-Release:	2
+Release:	3
 License:	GPL
 Group:		Applications/File
 Source0:	http://www.fpx.de/fp/Software/UUDeview/download/%{name}-%{version}.tar.gz
@@ -103,7 +103,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc HISTORY README* doc/library.ps
+%doc HISTORY README* 
 %attr(755,root,root) %{_libdir}/libuu.so.*.*
 %attr(755,root,root) %{_bindir}/minews
 %attr(755,root,root) %{_bindir}/uudeview
@@ -118,7 +118,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%doc doc/library.ps.gz
+%doc doc/library.ps
 %attr(755,root,root) %{_libdir}/libuu.so
 %attr(755,root,root) %{_libdir}/libuu.la
 %{_includedir}/*.h
