@@ -17,6 +17,7 @@ BuildRequires:	tcl-devel
 BuildRequires:	tetex-dvips
 BuildRequires:	tetex-latex
 BuildRequires:	tetex-format-latex
+BuildRequires:	tetex-tex-misc
 BuildRequires:	tk-devel
 BuildRequires:	transfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
