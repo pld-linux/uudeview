@@ -3,7 +3,7 @@ Summary(pl):	Uniwersalny dekoder uuencode, xxencode, Base64 i BinHex
 Summary(pt_BR):	UUDeview, decodificador de vários tipos de arquivos
 Name:		uudeview
 Version:	0.5.19
-Release:	2
+Release:	3
 License:	GPL
 Group:		Applications/File
 Source0:	http://www.fpx.de/fp/Software/UUDeview/download/%{name}-%{version}.tar.gz
@@ -20,7 +20,6 @@ BuildRequires:	tetex-format-latex
 BuildRequires:	tetex-tex-misc
 BuildRequires:	tk-devel
 BuildRequires:	transfig
-BuildRequires:	%{__perl}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -99,8 +98,6 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 
 mv -f inews/README README.inews
-
-%{__perl} -pi -e "s,\\'/usr/lib\\',\\'%{_libdir}\\'," $RPM_BUILD_ROOT%{_libdir}/*.la
 
 %clean
 rm -rf $RPM_BUILD_ROOT
