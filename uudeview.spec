@@ -1,4 +1,4 @@
-# $Revision: 1.1 $
+# $Revision: 1.2 $
 Summary:	Smart decoder for uuencode, xxencode, Base64 and BinHex
 Summary(pl):	Uniwersalny dekoder uuencode, xxencode, Base64 i BinHex
 Name:		uudeview
@@ -7,7 +7,7 @@ Release:	1
 License:	GPL
 Group:		Utilities/File
 Group(pl):	Narzêdzia/Pliki
-Source:		http://www.informatik.uni-frankfurt.de/~fp/uudeview/Apps/frank/%{_name}-%{_version}.tar.gz
+Source:		http://www.informatik.uni-frankfurt.de/~fp/uudeview/Apps/frank/%{name}-%{version}.tar.gz
 URL:		http://www.uni-frankfurt.de/~fp/uudeview/
 BuildRoot:	/tmp/%{name}-%{version}-root
 
@@ -26,7 +26,7 @@ wymienione formaty (oprócz BinHex).
 
 %prep
 %setup -q
-%{_configure} --without-x
+%configure --without-x
 
 %build
 make
@@ -35,9 +35,8 @@ make
 rm -rf $RPM_BUILD_ROOT
 
 make install \
-    bindir=$RPM_BUILD_ROOT%{_bindir} \
-    infodir=$RPM_BUILD_ROOT%{_infodir} \
-    mandir=$RPM_BUILD_ROOT%{_mandir}
+    BINDIR=$RPM_BUILD_ROOT%{_bindir} \
+    MANDIR=$RPM_BUILD_ROOT%{_mandir}
 
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/* \
 	COPYING HISTORY HOWTO IAFA-PACKAGE 
