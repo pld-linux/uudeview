@@ -1,5 +1,6 @@
 Summary:	Smart decoder for uuencode, xxencode, Base64 and BinHex
 Summary(pl):	Uniwersalny dekoder uuencode, xxencode, Base64 i BinHex
+Summary(pt_BR):	UUDeview, decodificador de vários tipos de arquivos
 Name:		uudeview
 Version:	0.5.18
 Release:	1
@@ -28,6 +29,10 @@ formatów, takich jak uuencode, xxencode, Base64 i BinHex. Potrafi
 poradziæ sobie z wieloma plikami w wielu czê¶ciach, nawet
 wymieszanych. W pakiecie znajduje siê tak¿e program do kodowania
 plików na wy¿ej wymienione formaty (oprócz BinHex).
+
+%description -l pt_BR
+Decodificador UUencode, XXencode, Base64, BinHex, etc. Inclui um
+codificador.
 
 %package x11
 Summary:	xdeview - uudeview with a GUI
