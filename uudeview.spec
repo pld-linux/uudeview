@@ -3,7 +3,7 @@ Summary(pl):	Uniwersalny dekoder uuencode, xxencode, Base64 i BinHex
 Summary(pt_BR):	UUDeview, decodificador de vários tipos de arquivos
 Name:		uudeview
 Version:	0.5.18
-Release:	3
+Release:	4
 License:	GPL
 Group:		Applications/File
 Source0:	http://www.fpx.de/fp/Software/UUDeview/download/%{name}-%{version}.tar.gz
@@ -13,7 +13,7 @@ URL:		http://www.fpx.de/fp/Software/UUDeview/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool
-BuildRequires:	tcl-devel
+BuildRequires:	tcl-devel >= 8.3.4-10
 BuildRequires:	tetex-dvips
 BuildRequires:	tetex-latex
 BuildRequires:	tetex-format-latex
