@@ -10,6 +10,7 @@ Source0:	http://www.fpx.de/fp/Software/UUDeview/download/%{name}-%{version}.tar.
 Patch0:		%{name}-shared.patch
 URL:		http://www.fpx.de/fp/Software/UUDeview/
 BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	libtool
 BuildRequires:	tcl-devel
 BuildRequires:	tetex-dvips
@@ -76,7 +77,7 @@ Statyczna biblioteka uulib.
 %patch -p1
 
 %build
-aclocal
+%{__aclocal}
 %{__autoconf}
 %configure
 
