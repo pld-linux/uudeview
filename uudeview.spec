@@ -5,8 +5,6 @@ Version:	0.5.13
 Release:	5
 License:	GPL
 Group:		Applications/File
-Group(de):	Applikationen/Datei
-Group(pl):	Aplikacje/Pliki
 Source0:	http://www.informatik.uni-frankfurt.de/~fp/uudeview/Apps/frank/%{name}-%{version}.tar.gz
 URL:		http://www.uni-frankfurt.de/~fp/uudeview/
 BuildRequires:	autoconf
