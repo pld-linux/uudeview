@@ -27,7 +27,6 @@ BinHex).
 %setup -q
 
 %build
-LDFLAGS="-s"; export LDFLAGS
 %configure \
 	--without-x
 %{__make}
@@ -39,8 +38,7 @@ rm -rf $RPM_BUILD_ROOT
 	BINDIR=$RPM_BUILD_ROOT%{_bindir} \
 	MANDIR=$RPM_BUILD_ROOT%{_mandir}
 
-gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/* \
-	HISTORY HOWTO IAFA-PACKAGE 
+gzip -9nf HISTORY HOWTO IAFA-PACKAGE 
 
 %clean
 rm -rf $RPM_BUILD_ROOT
