@@ -2,7 +2,7 @@ Summary:	Smart decoder for uuencode, xxencode, Base64 and BinHex
 Summary(pl):	Uniwersalny dekoder uuencode, xxencode, Base64 i BinHex
 Name:		uudeview
 Version:	0.5.13
-Release:	2
+Release:	3
 License:	GPL
 Group:		Utilities/File
 Group(pl):	Narzêdzia/Pliki
