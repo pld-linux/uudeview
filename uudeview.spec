@@ -20,6 +20,7 @@ BuildRequires:	tetex-format-latex
 BuildRequires:	tetex-tex-misc
 BuildRequires:	tk-devel
 BuildRequires:	transfig
+BuildRequires:	%{__perl}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -98,6 +99,8 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 
 mv -f inews/README README.inews
+
+%{__perl} -pi -e "s,\\'/usr/lib\\',\\'%{_libdir}\\'," $RPM_BUILD_ROOT%{_libdir}/*.la
 
 %clean
 rm -rf $RPM_BUILD_ROOT
