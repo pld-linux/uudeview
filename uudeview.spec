@@ -7,7 +7,7 @@ Release:	1
 License:	GPL
 Group:		Applications/File
 Source0:	http://www.fpx.de/fp/Software/UUDeview/download/%{name}-%{version}.tar.gz
-# Source0-md5:	f852ab1a77e946dc7522df06b0c59e35
+# Source0-md5:	c84bd5be414fdaf887ffd2c0979a2992
 Patch0:		%{name}-shared.patch
 URL:		http://www.fpx.de/fp/Software/UUDeview/
 BuildRequires:	autoconf
