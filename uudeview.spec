@@ -106,7 +106,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc HISTORY README* 
+%doc HISTORY README*
 %attr(755,root,root) %{_libdir}/libuu.so.*.*
 %attr(755,root,root) %{_bindir}/minews
 %attr(755,root,root) %{_bindir}/uudeview
