@@ -8,7 +8,7 @@ Group:		Utilities/File
 Group(pl):	Narzêdzia/Pliki
 Source:		http://www.informatik.uni-frankfurt.de/~fp/uudeview/Apps/frank/%{name}-%{version}.tar.gz
 URL:		http://www.uni-frankfurt.de/~fp/uudeview/
-BuildRoot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 UUDeview is a smart decoder for several surfaces which are common in email
