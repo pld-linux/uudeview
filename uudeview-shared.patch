@@ -54,14 +54,14 @@
 -uustring.o:	uustring.c uudeview.h uuint.h uustring.h config.h
 -fptools.o:	fptools.c fptools.h config.h
 +libuu.la:	$(UULIB_OBJ)
-+	libtool $(CC) -o libuu.la $(LDFLAGS) $(UULIB_OBJ) -rpath /usr/lib
++	libtool --mode=link $(CC) -o libuu.la $(LDFLAGS) $(UULIB_OBJ) -rpath $(libdir)
 +
 +%.lo : %.c
-+	libtool $(CC) -c $(CFLAGS) $(VDEF) $<
++	libtool --mode=compile $(CC) -c $(CFLAGS) $(VDEF) $<
 +
 +install:	libuu.la
 +	install -d $(DESTDIR)$(libdir) $(DESTDIR)$(includedir)
-+	libtool install libuu.la $(DESTDIR)$(libdir)
++	libtool --mode=install install libuu.la $(DESTDIR)$(libdir)
 +	install uudeview.h fptools.h $(DESTDIR)$(includedir)
 +
 +uuencode.lo:	uuencode.c uudeview.h uuint.h uustring.h fptools.h config.h
