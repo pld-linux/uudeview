@@ -1,14 +1,18 @@
 Summary:	Smart decoder for uuencode, xxencode, Base64 and BinHex
 Summary(pl):	Uniwersalny dekoder uuencode, xxencode, Base64 i BinHex
 Name:		uudeview
-Version:	0.5.15
+Version:	0.5.18
 Release:	1
 License:	GPL
 Group:		Applications/File
 Source0:	http://www.fpx.de/fp/Software/UUDeview/download/%{name}-%{version}.tar.gz
+Patch0:		%{name}-shared.patch
 URL:		http://www.fpx.de/fp/Software/UUDeview/
 BuildRequires:	autoconf
+BuildRequires:	libtool
 BuildRequires:	tcl-devel
+BuildRequires:	tetex-dvips
+BuildRequires:	tetex-latex
 BuildRequires:	tk-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -25,15 +29,53 @@ poradziæ sobie z wieloma plikami w wielu czê¶ciach, nawet
 wymieszanych. W pakiecie znajduje siê tak¿e program do kodowania
 plików na wy¿ej wymienione formaty (oprócz BinHex).
 
+%package x11
+Summary:	xdeview - uudeview with a GUI
+Summary(pl):	xdeview - uudeview z graficznym interfejsem
+Group:		X11/Applications
+Requires:	%{name} = %{version}
+
+%description x11
+xdeview - uudeview with a GUI.
+
+%description x11 -l pl
+xdeview - uudeview z graficznym interfejsem.
+
+%package devel
+Summary:	uulib header files
+Summary(pl):	Pliki nag³ówkowe uulib
+Group:		Development/Libraries
+Requires:	%{name} = %{version}
+
+%description devel
+uulib header files.
+
+%description devel -l pl
+Pliki nag³ówkowe uulib.
+
+%package static
+Summary:	uulib static library
+Summary(pl):	Statyczna biblioteka uulib
+Group:		Development/Libraries
+Requires:	%{name}-devel = %{version}
+
+%description static
+uulib static library.
+
+%description static -l pl
+Statyczna biblioteka uulib.
+
 %prep
 %setup -q
+%patch -p1
 
 %build
 aclocal
 autoconf
-%configure \
-	--without-x
+%configure
+
 %{__make}
+%{__make} ps -C doc
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -42,14 +84,40 @@ rm -rf $RPM_BUILD_ROOT
 	BINDIR=$RPM_BUILD_ROOT%{_bindir} \
 	MANDIR=$RPM_BUILD_ROOT%{_mandir}
 
-gzip -9nf HISTORY IAFA-PACKAGE
+%{__make} install -C uulib \
+	DESTDIR=$RPM_BUILD_ROOT
+
+mv -f inews/README README.inews
+gzip -9nf HISTORY README* doc/library.ps
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%post	-p /sbin/ldconfig
+%postun	-p /sbin/ldconfig
+
 %files
 %defattr(644,root,root,755)
 %doc *.gz
+%attr(755,root,root) %{_libdir}/libuu.so.*.*
+%attr(755,root,root) %{_bindir}/minews
+%attr(755,root,root) %{_bindir}/uudeview
+%attr(755,root,root) %{_bindir}/uuenview
+%{_mandir}/man1/uu*
 
-%attr(755,root,root) %{_bindir}/*
-%{_mandir}/man1/*
+%files x11
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/uuwish
+%attr(755,root,root) %{_bindir}/xdeview
+%{_mandir}/man1/xdeview.1*
+
+%files devel
+%defattr(644,root,root,755)
+%doc doc/library.ps.gz
+%attr(755,root,root) %{_libdir}/libuu.so
+%attr(755,root,root) %{_libdir}/libuu.la
+%{_includedir}/*.h
+
+%files static
+%defattr(644,root,root,755)
+%{_libdir}/libuu.a
