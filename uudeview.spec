@@ -16,6 +16,7 @@ BuildRequires:	libtool
 BuildRequires:	tcl-devel
 BuildRequires:	tetex-dvips
 BuildRequires:	tetex-latex
+BuildRequires:	tetex-latex-psnfss
 BuildRequires:	tetex-format-latex
 BuildRequires:	tetex-tex-misc
 BuildRequires:	tk-devel
