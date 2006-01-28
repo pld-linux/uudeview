@@ -18,11 +18,13 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool
 BuildRequires:	tcl-devel
+%if %{with doc}
 BuildRequires:	tetex-dvips
 BuildRequires:	tetex-latex
 BuildRequires:	tetex-latex-psnfss
 BuildRequires:	tetex-format-latex
 BuildRequires:	tetex-tex-misc
+%endif
 BuildRequires:	tk-devel
 BuildRequires:	transfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
