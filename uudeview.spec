@@ -1,3 +1,7 @@
+#
+# Conditional build:
+%bcond_without  doc     # don't build HTML documentation
+
 Summary:	Smart decoder for uuencode, xxencode, Base64 and BinHex
 Summary(pl):	Uniwersalny dekoder uuencode, xxencode, Base64 i BinHex
 Summary(pt_BR):	UUDeview, decodificador de vários tipos de arquivos
@@ -86,7 +90,7 @@ Statyczna biblioteka uulib.
 %configure
 
 %{__make}
-%{__make} ps -C doc
+%{?with_doc:%{__make} ps -C doc}
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -123,7 +127,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%doc doc/library.ps
+%{?with_doc:%doc doc/library.ps}
 %attr(755,root,root) %{_libdir}/libuu.so
 %{_libdir}/libuu.la
 %{_includedir}/*.h
