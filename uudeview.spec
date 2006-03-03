@@ -24,9 +24,9 @@ BuildRequires:	tetex-latex
 BuildRequires:	tetex-latex-psnfss
 BuildRequires:	tetex-format-latex
 BuildRequires:	tetex-tex-misc
+BuildRequires:	transfig
 %endif
 BuildRequires:	tk-devel
-BuildRequires:	transfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
