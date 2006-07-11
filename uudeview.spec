@@ -1,6 +1,7 @@
 #
 # Conditional build:
-%bcond_without  doc     # don't build HTML documentation
+%bcond_without  doc	# don't build HTML documentation
+%bcond_without  x11	# don't build tk GUI
 
 Summary:	Smart decoder for uuencode, xxencode, Base64 and BinHex
 Summary(pl):	Uniwersalny dekoder uuencode, xxencode, Base64 i BinHex
@@ -17,7 +18,6 @@ URL:		http://www.fpx.de/fp/Software/UUDeview/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool
-BuildRequires:	tcl-devel
 %if %{with doc}
 BuildRequires:	tetex-dvips
 BuildRequires:	tetex-latex
@@ -26,7 +26,10 @@ BuildRequires:	tetex-format-latex
 BuildRequires:	tetex-tex-misc
 BuildRequires:	transfig
 %endif
+%if %{with x11}
+BuildRequires:	tcl-devel
 BuildRequires:	tk-devel
+%endif
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -89,7 +92,8 @@ Statyczna biblioteka uulib.
 %build
 %{__aclocal}
 %{__autoconf}
-%configure
+%configure \
+	%{!?with_x11:--disable-tcl}
 
 %{__make}
 %{?with_doc:%{__make} ps -C doc}
@@ -121,11 +125,13 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/uuenview
 %{_mandir}/man1/uu*
 
+%if %{with x11}
 %files x11
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/uuwish
 %attr(755,root,root) %{_bindir}/xdeview
 %{_mandir}/man1/xdeview.1*
+%endif
 
 %files devel
 %defattr(644,root,root,755)
