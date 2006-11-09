@@ -20,9 +20,9 @@ BuildRequires:	automake
 BuildRequires:	libtool
 %if %{with doc}
 BuildRequires:	tetex-dvips
+BuildRequires:	tetex-format-latex
 BuildRequires:	tetex-latex
 BuildRequires:	tetex-latex-psnfss
-BuildRequires:	tetex-format-latex
 BuildRequires:	tetex-tex-misc
 BuildRequires:	transfig
 %endif
@@ -53,7 +53,7 @@ codificador.
 Summary:	xdeview - uudeview with a GUI
 Summary(pl):	xdeview - uudeview z graficznym interfejsem
 Group:		X11/Applications
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description x11
 xdeview - uudeview with a GUI.
@@ -65,7 +65,7 @@ xdeview - uudeview z graficznym interfejsem.
 Summary:	uulib header files
 Summary(pl):	Pliki nag³ówkowe uulib
 Group:		Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description devel
 uulib header files.
@@ -77,7 +77,7 @@ Pliki nag³ówkowe uulib.
 Summary:	uulib static library
 Summary(pl):	Statyczna biblioteka uulib
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 uulib static library.
