@@ -4,8 +4,8 @@
 %bcond_without  x11	# don't build tk GUI
 
 Summary:	Smart decoder for uuencode, xxencode, Base64 and BinHex
-Summary(pl.UTF-8):   Uniwersalny dekoder uuencode, xxencode, Base64 i BinHex
-Summary(pt_BR.UTF-8):   UUDeview, decodificador de vários tipos de arquivos
+Summary(pl.UTF-8):	Uniwersalny dekoder uuencode, xxencode, Base64 i BinHex
+Summary(pt_BR.UTF-8):	UUDeview, decodificador de vários tipos de arquivos
 Name:		uudeview
 Version:	0.5.20
 Release:	1
@@ -51,7 +51,7 @@ codificador.
 
 %package x11
 Summary:	xdeview - uudeview with a GUI
-Summary(pl.UTF-8):   xdeview - uudeview z graficznym interfejsem
+Summary(pl.UTF-8):	xdeview - uudeview z graficznym interfejsem
 Group:		X11/Applications
 Requires:	%{name} = %{version}-%{release}
 
@@ -63,7 +63,7 @@ xdeview - uudeview z graficznym interfejsem.
 
 %package devel
 Summary:	uulib header files
-Summary(pl.UTF-8):   Pliki nagłówkowe uulib
+Summary(pl.UTF-8):	Pliki nagłówkowe uulib
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -75,7 +75,7 @@ Pliki nagłówkowe uulib.
 
 %package static
 Summary:	uulib static library
-Summary(pl.UTF-8):   Statyczna biblioteka uulib
+Summary(pl.UTF-8):	Statyczna biblioteka uulib
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
