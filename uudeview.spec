@@ -4,8 +4,8 @@
 %bcond_without  x11	# don't build tk GUI
 
 Summary:	Smart decoder for uuencode, xxencode, Base64 and BinHex
-Summary(pl):	Uniwersalny dekoder uuencode, xxencode, Base64 i BinHex
-Summary(pt_BR):	UUDeview, decodificador de vários tipos de arquivos
+Summary(pl.UTF-8):   Uniwersalny dekoder uuencode, xxencode, Base64 i BinHex
+Summary(pt_BR.UTF-8):   UUDeview, decodificador de vÃ¡rios tipos de arquivos
 Name:		uudeview
 Version:	0.5.20
 Release:	1
@@ -38,51 +38,51 @@ email and Usenet. It can decode uuencode, xxencode, Base64 and BinHex.
 It can handle multiple files and multiple parts, even in random order.
 Also an encoder is attached, UUEnview.
 
-%description -l pl
-UUDeview jest przydatnym narzêdziem do dekodowania popularnych
-formatów, takich jak uuencode, xxencode, Base64 i BinHex. Potrafi
-poradziæ sobie z wieloma plikami w wielu czê¶ciach, nawet
-wymieszanych. W pakiecie znajduje siê tak¿e program do kodowania
-plików na wy¿ej wymienione formaty (oprócz BinHex).
+%description -l pl.UTF-8
+UUDeview jest przydatnym narzÄ™dziem do dekodowania popularnych
+formatÃ³w, takich jak uuencode, xxencode, Base64 i BinHex. Potrafi
+poradziÄ‡ sobie z wieloma plikami w wielu czÄ™Å›ciach, nawet
+wymieszanych. W pakiecie znajduje siÄ™ takÅ¼e program do kodowania
+plikÃ³w na wyÅ¼ej wymienione formaty (oprÃ³cz BinHex).
 
-%description -l pt_BR
+%description -l pt_BR.UTF-8
 Decodificador UUencode, XXencode, Base64, BinHex, etc. Inclui um
 codificador.
 
 %package x11
 Summary:	xdeview - uudeview with a GUI
-Summary(pl):	xdeview - uudeview z graficznym interfejsem
+Summary(pl.UTF-8):   xdeview - uudeview z graficznym interfejsem
 Group:		X11/Applications
 Requires:	%{name} = %{version}-%{release}
 
 %description x11
 xdeview - uudeview with a GUI.
 
-%description x11 -l pl
+%description x11 -l pl.UTF-8
 xdeview - uudeview z graficznym interfejsem.
 
 %package devel
 Summary:	uulib header files
-Summary(pl):	Pliki nag³ówkowe uulib
+Summary(pl.UTF-8):   Pliki nagÅ‚Ã³wkowe uulib
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description devel
 uulib header files.
 
-%description devel -l pl
-Pliki nag³ówkowe uulib.
+%description devel -l pl.UTF-8
+Pliki nagÅ‚Ã³wkowe uulib.
 
 %package static
 Summary:	uulib static library
-Summary(pl):	Statyczna biblioteka uulib
+Summary(pl.UTF-8):   Statyczna biblioteka uulib
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 uulib static library.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Statyczna biblioteka uulib.
 
 %prep
