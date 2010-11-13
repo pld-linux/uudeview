@@ -110,7 +110,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install -C uulib \
 	DESTDIR=$RPM_BUILD_ROOT
 
-mv -f inews/README README.inews
+[ -f README.inews ] || mv -f inews/README README.inews
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -122,6 +122,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc HISTORY README*
 %attr(755,root,root) %{_libdir}/libuu.so.*.*
+%ghost %attr(755,root,root) %{_libdir}/libuu.so.0
 %attr(755,root,root) %{_bindir}/minews
 %attr(755,root,root) %{_bindir}/uudeview
 %attr(755,root,root) %{_bindir}/uuenview
