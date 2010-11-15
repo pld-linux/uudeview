@@ -91,6 +91,8 @@ Statyczna biblioteka uulib.
 %patch0 -p1
 %patch1 -p1
 
+mv inews/README README.inews
+
 %build
 %{__aclocal}
 %{__autoconf}
@@ -109,8 +111,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install -C uulib \
 	DESTDIR=$RPM_BUILD_ROOT
-
-[ -f README.inews ] || mv -f inews/README README.inews
 
 %clean
 rm -rf $RPM_BUILD_ROOT
