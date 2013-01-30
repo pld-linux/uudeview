@@ -1,0 +1,24 @@
+diff -urN uudeview-0.5.20/inews/inews.c uudeview-0.5.20.new/inews/inews.c
+--- uudeview-0.5.20/inews/inews.c	2004-01-29 03:14:19.000000000 +0100
++++ uudeview-0.5.20.new/inews/inews.c	2013-01-30 13:52:06.388337684 +0100
+@@ -303,7 +303,7 @@
+ 			putc(*cp, ser_wr_fp);
+ 		else {		/* Stupid & hack.  God damn it. */
+ 			putc(toupper(passwd->pw_name[0]), ser_wr_fp);
+-			fprintf(ser_wr_fp, passwd->pw_name+1);
++			fprintf(ser_wr_fp, "%s", passwd->pw_name+1);
+ 		}
+ 
+ 	fprintf(ser_wr_fp, ")\r\n");
+diff -urN uudeview-0.5.20/unix/uuenview.c uudeview-0.5.20.new/unix/uuenview.c
+--- uudeview-0.5.20/unix/uuenview.c	2002-03-06 14:52:46.000000000 +0100
++++ uudeview-0.5.20.new/unix/uuenview.c	2013-01-30 13:52:48.114778300 +0100
+@@ -483,7 +483,7 @@
+       if (_FP_stristr (input, "multipart") != NULL) {
+ 	/* it is already a multipart posting. grab the boundary */
+ 	if ((ptr = _FP_stristr (input, "boundary=")) != NULL) {
+-	  fprintf(thepipe,  input);
++	  fprintf(thepipe, "%s", input);
+ 	  strcpy (boundary, ParseValue (ptr));
+ 	  hadmulti = 1;
+ 	}

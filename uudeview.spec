@@ -15,6 +15,7 @@ Source0:	http://www.fpx.de/fp/Software/UUDeview/download/%{name}-%{version}.tar.
 # Source0-md5:	0161abaec3658095044601eae82bbc5b
 Patch0:		%{name}-shared.patch
 Patch1:		%{name}-latex.patch
+Patch2:		%{name}-format-security.patch
 URL:		http://www.fpx.de/fp/Software/UUDeview/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -90,6 +91,7 @@ Statyczna biblioteka uulib.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 mv inews/README README.inews
 
