@@ -8,7 +8,7 @@ Summary(pl.UTF-8):	Uniwersalny dekoder uuencode, xxencode, Base64 i BinHex
 Summary(pt_BR.UTF-8):	UUDeview, decodificador de vários tipos de arquivos
 Name:		uudeview
 Version:	0.5.20
-Release:	4
+Release:	5
 License:	GPL
 Group:		Applications/File
 Source0:	http://www.fpx.de/fp/Software/UUDeview/download/%{name}-%{version}.tar.gz
