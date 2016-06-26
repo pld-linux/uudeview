@@ -9,7 +9,7 @@ Summary(pt_BR.UTF-8):	UUDeview, decodificador de vários tipos de arquivos
 Name:		uudeview
 Version:	0.5.20
 Release:	5
-License:	GPL
+License:	GPL v2+
 Group:		Applications/File
 Source0:	http://www.fpx.de/fp/Software/UUDeview/download/%{name}-%{version}.tar.gz
 # Source0-md5:	0161abaec3658095044601eae82bbc5b
@@ -17,7 +17,7 @@ Patch0:		%{name}-shared.patch
 Patch1:		%{name}-latex.patch
 Patch2:		%{name}-format-security.patch
 URL:		http://www.fpx.de/fp/Software/UUDeview/
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.9
 BuildRequires:	automake
 BuildRequires:	libtool
 %if %{with doc}
@@ -93,7 +93,7 @@ Statyczna biblioteka uulib.
 %patch1 -p1
 %patch2 -p1
 
-mv inews/README README.inews
+%{__mv} inews/README README.inews
 
 %build
 %{__aclocal}
@@ -123,12 +123,13 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc HISTORY README*
-%attr(755,root,root) %{_libdir}/libuu.so.*.*
-%ghost %attr(755,root,root) %{_libdir}/libuu.so.0
+%attr(755,root,root) %{_libdir}/libuu.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libuu.so.0
 %attr(755,root,root) %{_bindir}/minews
 %attr(755,root,root) %{_bindir}/uudeview
 %attr(755,root,root) %{_bindir}/uuenview
-%{_mandir}/man1/uu*
+%{_mandir}/man1/uudeview.1*
+%{_mandir}/man1/uuenview.1*
 
 %if %{with x11}
 %files x11
@@ -143,7 +144,8 @@ rm -rf $RPM_BUILD_ROOT
 %{?with_doc:%doc doc/library.ps}
 %attr(755,root,root) %{_libdir}/libuu.so
 %{_libdir}/libuu.la
-%{_includedir}/*.h
+%{_includedir}/fptools.h
+%{_includedir}/uudeview.h
 
 %files static
 %defattr(644,root,root,755)
