@@ -1,6 +1,40 @@
---- uudeview-0.5.18/uulib/Makefile.in.orig	Mon Mar 11 10:15:46 2002
-+++ uudeview-0.5.18/uulib/Makefile.in	Sun May 12 14:15:40 2002
-@@ -40,9 +40,13 @@
+diff -urNp -x '*.orig' uudeview-0.5.20.org/tcl/Makefile.in uudeview-0.5.20/tcl/Makefile.in
+--- uudeview-0.5.20.org/tcl/Makefile.in	2001-06-04 18:26:57.000000000 +0200
++++ uudeview-0.5.20/tcl/Makefile.in	2026-03-03 00:24:28.134118212 +0100
+@@ -95,8 +95,8 @@ new:		clean
+ 	rm -f uuwish
+ 	make all
+ 
+-uuwish:		$(OBJ) ../uulib/libuu.a
+-	$(CC) -o $@ $(OBJ) -L../uulib -luu $(LIBS)
++uuwish:		$(OBJ) ../uulib/libuu.la
++	$(CC) -o $@ $(OBJ) -L../uulib/.libs -luu $(LIBS)
+ 
+ xdeview:
+ 	chmod 755 $@
+diff -urNp -x '*.orig' uudeview-0.5.20.org/unix/Makefile.in uudeview-0.5.20/unix/Makefile.in
+--- uudeview-0.5.20.org/unix/Makefile.in	2001-06-04 18:26:58.000000000 +0200
++++ uudeview-0.5.20/unix/Makefile.in	2026-03-03 00:24:28.134000664 +0100
+@@ -114,11 +114,11 @@ new:		clean
+ 	rm -f uudeview uuenview
+ 	make all
+ 
+-uudeview:	$(UUDEVIEW_OBJ) ../uulib/libuu.a
+-	$(CC) -o $@ $(UUDEVIEW_OBJ) -L../uulib -luu $(LIBS)
++uudeview:	$(UUDEVIEW_OBJ) ../uulib/libuu.la
++	$(CC) -o $@ $(UUDEVIEW_OBJ) -L../uulib/.libs -luu $(LIBS)
+ 
+-uuenview:	$(UUENVIEW_OBJ) ../uulib/libuu.a
+-	$(CC) -o $@ $(UUENVIEW_OBJ) -L../uulib -luu $(LIBS)
++uuenview:	$(UUENVIEW_OBJ) ../uulib/libuu.la
++	$(CC) -o $@ $(UUENVIEW_OBJ) -L../uulib/.libs -luu $(LIBS)
+ 
+ .c.o:
+ 	$(CC) -c $(CFLAGS) -I../uulib $(VDEF) $<
+diff -urNp -x '*.orig' uudeview-0.5.20.org/uulib/Makefile.in uudeview-0.5.20/uulib/Makefile.in
+--- uudeview-0.5.20.org/uulib/Makefile.in	2002-03-11 10:15:46.000000000 +0100
++++ uudeview-0.5.20/uulib/Makefile.in	2026-03-03 00:24:28.133819666 +0100
+@@ -40,9 +40,13 @@ PATCH	=	@PATCH@
  VDEF	=	-DVERSION=\"$(VERSION)\" -DPATCH=\"$(PATCH)\"
  #
  
@@ -15,7 +49,7 @@
  
  #
  # make stuff
-@@ -51,11 +55,11 @@
+@@ -51,11 +55,11 @@ UULIB_OBJ	=	${UULIB_SOURCE:.c=.o}
  .SUFFIXES:
  .SUFFIXES: .c .o
  
@@ -29,7 +63,7 @@
  
  distclean:	clean
  	rm -f config.status config.cache config.log Makefile config.h
-@@ -64,25 +68,28 @@
+@@ -64,25 +68,28 @@ distclean:	clean
  realclean:	distclean
  
  new:		clean
@@ -75,33 +109,3 @@
  
  uustring.h:	uustring.c
  	awk -f uustring.awk < uustring.c > uustring.h
---- uudeview-0.5.18/unix/Makefile.in.orig	Mon Jun  4 18:26:58 2001
-+++ uudeview-0.5.18/unix/Makefile.in	Sun May 12 14:22:29 2002
-@@ -114,10 +114,10 @@
- 	rm -f uudeview uuenview
- 	make all
- 
--uudeview:	$(UUDEVIEW_OBJ) ../uulib/libuu.a
--	$(CC) -o $@ $(UUDEVIEW_OBJ) -L../uulib -luu $(LIBS)
-+uudeview:	$(UUDEVIEW_OBJ) ../uulib/libuu.la
-+	$(CC) -o $@ $(UUDEVIEW_OBJ) -L../uulib/.libs -luu $(LIBS)
- 
--uuenview:	$(UUENVIEW_OBJ) ../uulib/libuu.a
--	$(CC) -o $@ $(UUENVIEW_OBJ) -L../uulib -luu $(LIBS)
-+uuenview:	$(UUENVIEW_OBJ) ../uulib/libuu.la
-+	$(CC) -o $@ $(UUENVIEW_OBJ) -L../uulib/.libs -luu $(LIBS)
- 
- .c.o:
---- uudeview-0.5.18/tcl/Makefile.in.orig	Mon Jun  4 18:26:57 2001
-+++ uudeview-0.5.18/tcl/Makefile.in	Sun May 12 14:26:14 2002
-@@ -95,8 +95,8 @@
- 	rm -f uuwish
- 	make all
- 
--uuwish:		$(OBJ) ../uulib/libuu.a
--	$(CC) -o $@ $(OBJ) -L../uulib -luu $(LIBS)
-+uuwish:		$(OBJ) ../uulib/libuu.la
-+	$(CC) -o $@ $(OBJ) -L../uulib/.libs -luu $(LIBS)
- 
- xdeview:
- 	chmod 755 $@
