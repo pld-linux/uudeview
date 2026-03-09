@@ -1,0 +1,16 @@
+--- uudeview-0.5.20/tcl/uutcl.c.orig	2001-06-05 20:strtime
++++ uudeview-0.5.20/tcl/uutcl.c
+@@ -48,13 +48,6 @@
+ #include <tcl.h>
+ #endif
+
+-/*
+- * The following variable is a special hack that is needed in order for
+- * Sun shared libraries to be used for Tcl.
+- */
+-
+-extern int matherr();
+-int *tclDummyMathPtr = (int *) matherr;
+
+ #include <uudeview.h>
+ #include <uuint.h>

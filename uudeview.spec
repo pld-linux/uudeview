@@ -8,7 +8,7 @@ Summary(pl.UTF-8):	Uniwersalny dekoder uuencode, xxencode, Base64 i BinHex
 Summary(pt_BR.UTF-8):	UUDeview, decodificador de vários tipos de arquivos
 Name:		uudeview
 Version:	0.5.20
-Release:	6
+Release:	7
 License:	GPL v2+
 Group:		Applications/File
 Source0:	http://www.fpx.de/fp/Software/UUDeview/download/%{name}-%{version}.tar.gz
@@ -16,6 +16,7 @@ Source0:	http://www.fpx.de/fp/Software/UUDeview/download/%{name}-%{version}.tar.
 Patch0:		%{name}-shared.patch
 Patch1:		%{name}-latex.patch
 Patch2:		%{name}-format-security.patch
+Patch3:		%{name}-matherr.patch
 URL:		http://www.fpx.de/fp/Software/UUDeview/
 BuildRequires:	autoconf >= 2.9
 BuildRequires:	automake
@@ -92,6 +93,7 @@ Statyczna biblioteka uulib.
 %patch -P0 -p1
 %patch -P1 -p1
 %patch -P2 -p1
+%patch -P3 -p1
 
 %{__mv} inews/README README.inews
 
@@ -99,6 +101,7 @@ Statyczna biblioteka uulib.
 %{__aclocal}
 %{__autoconf}
 %configure \
+	CFLAGS="-std=gnu89 %{rpmcflags}" \
 	%{!?with_x11:--disable-tcl}
 
 %{__make}
